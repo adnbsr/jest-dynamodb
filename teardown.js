@@ -13,8 +13,8 @@ module.exports = async function (jestArgs) {
   } else {
     const dynamoDB = global.__DYNAMODB_CLIENT__;
     const {TableNames: tableNames} = await dynamoDB.listTables().promise();
-    await Promise.all(
-      tableNames.map(tableName => dynamoDB.deleteTable({TableName: tableName}).promise())
-    );
+    // await Promise.all(
+    //   tableNames.map(tableName => dynamoDB.deleteTable({TableName: tableName}).promise())
+    // );
   }
 };

@@ -35,7 +35,10 @@ module.exports = async function () {
       dynamoDB.listTables().promise(),
       new Promise(resolve => setTimeout(resolve, 1000))
     ]);
+
+    
     await deleteTables(dynamoDB, tableNames); // cleanup leftovers
+    
   } catch (err) {
     // eslint-disable-next-line no-console
     debug(`fallback to launch DB due to ${err}`);
